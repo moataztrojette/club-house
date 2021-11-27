@@ -1,4 +1,29 @@
-const Login = () => {
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const Login = (props) => {
+
+  const [valuesInput,setValues] = useState({});
+
+  const MyValueInput = (event)=>{
+    let res = valuesInput;
+    res[event.target.name] = event.target.value;
+    setValues(res);
+  }
+
+  const handleFormSubmit = async(event)=>{
+    event.preventDefault();
+    try{
+     await axios.post("http://localhost:4000/api/user/login",valuesInput)
+      props.history.push("/test");
+    }catch(error){
+        toast(error.response.data,{
+          type: "error",
+        });
+    }
+}
     return ( <div>
         <div>
      <div className="container position-sticky z-index-sticky top-0">
@@ -20,21 +45,23 @@ const Login = () => {
                      <p className="mb-0">Enter your email and password to sign in</p>
                    </div>
                    <div className="card-body">
-                     <form role="form">
+                     <form role="form" onSubmit={handleFormSubmit}>
                        <label>Email</label>
                        <div className="mb-3">
-                         <input type="email" className="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" />
+                         <input type="email" className="form-control" placeholder="Email" name="email" aria-label="Email" aria-describedby="email-addon" onChange={MyValueInput} />
                        </div>
                        <label>Password</label>
                        <div className="mb-3">
-                         <input type="email" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" />
+                         <input type="password" className="form-control" placeholder="Password" name="password" aria-label="Password" aria-describedby="password-addon" onChange={MyValueInput} />
                        </div>
                      
                        <div className="text-center">
-                         <button type="button" className="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                         <button type="submit" className="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
                        </div>
                      </form>
                    </div>
+                   <ToastContainer></ToastContainer>
+
                  
                  </div>
                </div>
