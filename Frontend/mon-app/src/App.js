@@ -4,31 +4,30 @@ import Index from "./Home/Index";
 import Login from "./Admin/Authentification/Login";
 import Singup from "./Admin/Authentification/Singup";
 import Home from "./Home/Home";
-import Rooms from "./Client/Rooms/Rooms";
-import GestionVisiteur from "./Admin/Gestion_visiteur/GestionVisiteur";
 import InterfaceUser from "./Client/Interface/InterfaceUser";
+import NotFound from "./Admin/Authentification/NotFound";
+import Authentification_admin from "./Admin/Authentification_admin/Authentification_admin";
+
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route path="/login" component={Login} />
+          <Route path="/user" component={InterfaceUser}/>
+          <Route path="/admin" component={Home}/>
+          <Route path="/auth" component={Authentification_admin}/>
           <Route path="/singup" component={Singup} />
-          <Route path="/" exact component={Index} />
+          <Route path="/login" component={Login} />
+          <Route path="/" exact component={Index} />       
+          <Route path="/notfound" component={NotFound} />
+          <Redirect to="/notfound" />
+          </Switch>
 
-          <InterfaceUser>
-            <Route path="/rooms" component={Rooms} />
-          </InterfaceUser>
-          
-          <Home>
-            <Route path="/users" component={GestionVisiteur} />
-          </Home>
-
-       
-
-
-        </Switch>
       </BrowserRouter>
+      
+    
+
     </div>
   );
 }

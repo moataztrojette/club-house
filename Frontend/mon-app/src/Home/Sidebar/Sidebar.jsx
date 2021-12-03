@@ -76,7 +76,7 @@ const Sidebar = () => {
             </a>
           </li>
           <li class="nav-item">
-            <Link to ={"/users"} class="nav-link ">
+            <Link to ={"/admin/visiteur"} class="nav-link ">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg
                   width="12px"
@@ -119,7 +119,7 @@ const Sidebar = () => {
               </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link  ">
+            <Link to={"/admin/rooms"} class="nav-link  ">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg
                   width="12px"
@@ -156,10 +156,10 @@ const Sidebar = () => {
                 </svg>
               </div>
               <span class="nav-link-text ms-1">Rooms</span>
-            </a>
+            </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link">
+            <Link to ={"/admin/clubs"} class="nav-link">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg
                   width="12px"
@@ -200,10 +200,10 @@ const Sidebar = () => {
                 </svg>
               </div>
               <span class="nav-link-text ms-1">Clubs</span>
-            </a>
+            </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link  ">
+            <a href ="#" class="nav-link  ">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg
                   width="12px"

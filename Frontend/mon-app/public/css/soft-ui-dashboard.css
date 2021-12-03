@@ -25181,6 +25181,15 @@ justify-content: center;
   border: 0px solid;
   margin-right: 10px;
 }
+
+
+.image_profil{
+  background-color:var(--bs-light);
+  width: 5em;
+  height: 5em;
+  border-radius: 10px;
+}
+
 .equipe_first_info{
   text-align: center;
   margin-left: 10px;
@@ -25241,7 +25250,7 @@ justify-content: center;
 }
 .slider_Equipe{
   overflow: hidden;
-  height: 25em;
+  height: 30em;
   width: 20em;
   border-radius: 10px;
   margin-right: -40px;
@@ -25263,15 +25272,21 @@ justify-content: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-column-gap: 5em;
+    grid-column-gap: 2em;
   }
+  .btn-follow{
+    border-radius: 20px;
+    border: none;
+    width: 5em;
+    background-color:var(--bs-danger);
+    color: var(--bs-light);  }
   .equipe{
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
     height: 60%;
   }
-.equipe_liste button{
+.equipe_liste > .letsgo{
   border-radius: 20px;
   border: none;
   width: 5em;
@@ -25290,6 +25305,37 @@ justify-content: center;
 }
 .btn_rooms:hover {
   transform: scale(1.1);
+}
+.select_room{
+  width: 100%;
+  border: 1px solid #ebedf2;
+  opacity: 1px;
+  height: 40px;
+  color: #7e828f;
+  padding-left: 0.94rem;
+}
+.btn_link_meet{
+  text-align: center;
+  background-color:var(--bs-success);
+  color: var(--bs-light);
+  border-radius: 20px;
+  border: none;
+  height: 3em;
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.5s;
+
+}
+.btn_link_meet:hover {
+  transform: scale(1.1);
+}
+.btn_logout{
+  border: none;
+  background-color: var(--bs-info);
+  border-radius: 10px;
+  color:var(--bs-light);
+  width: 6em;
+  height: 2em;
 }
 
 /*rooms*/

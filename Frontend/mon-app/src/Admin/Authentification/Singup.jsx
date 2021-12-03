@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
 
-const Singup = () => {
+const Singup = (props) => {
   const [valuesInput, setValues] = useState({});
 
   const uploadToState = (event) => {
@@ -26,6 +26,8 @@ const Singup = () => {
     formData.append("prenom", valuesInput.prenom);
     formData.append("email", valuesInput.email);
     formData.append("password", valuesInput.password);
+    formData.append("date_nais", valuesInput.date_nais);
+    formData.append("telephone", valuesInput.telephone);
     formData.append("image", valuesInput.image);
 
     try {
@@ -46,6 +48,8 @@ const Singup = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      props.history.push("/login");
+
     } catch (error) {
       toast(error.response.data, {
         type: "error",
@@ -114,6 +118,31 @@ const Singup = () => {
                           onChange={MyValueInput}
                         />
                       </div>
+                      <div className="mb-3">
+                        <input
+                          name="date_nais"
+                          type="date"
+                          required
+                          className="form-control"
+                          aria-label="Name"
+                          aria-describedby="email-addon"
+                          onChange={MyValueInput}
+                        />
+                      </div>
+
+                      <div className="mb-3">
+                        <input
+                          name="telephone"
+                          type="number"
+                          required
+                          className="form-control"
+                          aria-label="Name"
+                          placeholder="Phone number"
+                          aria-describedby="email-addon"
+                          onChange={MyValueInput}
+                        />
+                      </div>
+
                       <ToastContainer></ToastContainer>
 
                       <div className="mb-3">

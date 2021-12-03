@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -20,12 +21,8 @@ const Sidebar = () => {
           href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html"
           target="_blank"
         >
-          <img
-            src="/img/logo-ct.png"
-            class="navbar-brand-img h-100"
-            alt="main_logo"
-          />
-          <span class="ms-1 font-weight-bold">Admin</span>
+         
+          <span class="ms-1 font-weight-bold"></span>
         </a>
       </div>
       <hr class="horizontal dark mt-0" />
@@ -35,7 +32,7 @@ const Sidebar = () => {
       >
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link  active">
+            <Link to ={"/user/profil"} class="nav-link  active">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg
                   width="12px"
@@ -72,11 +69,11 @@ const Sidebar = () => {
                 </svg>
               </div>
               <span class="nav-link-text ms-1">Profil</span>
-            </a>
+            </Link>
           </li>
         
           <li class="nav-item">
-            <a class="nav-link  ">
+            <Link to={'/user/rooms'} class="nav-link  ">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg
                   width="12px"
@@ -113,10 +110,10 @@ const Sidebar = () => {
                 </svg>
               </div>
               <span class="nav-link-text ms-1">Rooms</span>
-            </a>
+            </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link">
+            <Link to={"/user/clubs"} class="nav-link">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg
                   width="12px"
@@ -157,10 +154,10 @@ const Sidebar = () => {
                 </svg>
               </div>
               <span class="nav-link-text ms-1">Clubs</span>
-            </a>
+            </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link  ">
+            <Link to ={"/user/status"} class="nav-link  ">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg
                   width="12px"
@@ -201,7 +198,7 @@ const Sidebar = () => {
                 </svg>
               </div>
               <span class="nav-link-text ms-1">Status</span>
-            </a>
+            </Link>
           </li>
        
       

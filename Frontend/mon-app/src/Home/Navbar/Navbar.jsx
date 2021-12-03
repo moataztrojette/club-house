@@ -1,5 +1,5 @@
 import React from "react";
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav
       class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
@@ -35,10 +35,14 @@ const Navbar = () => {
               <a
                 href="javascript:;"
                 class="nav-link text-body font-weight-bold px-0"
-              >
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
-              </a>
+              ></a>
+                <img
+                onClick={props.logout}
+            src="/image/icons/switch.png" style={{width:"30px"}}
+            class="navbar-brand-img h-100"
+            alt="main_logo"
+          />
+              
             </li>
         
          

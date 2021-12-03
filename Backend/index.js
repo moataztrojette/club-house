@@ -8,7 +8,8 @@ const expressfileupload = require("express-fileupload")
 
 const user = require("./Routes/user.router");
 const room = require("./Routes/room.router.js");
-
+const clubs = require("./Routes/clubs.router.js");
+const clubUsers = require("./Routes/clubUsers.router");
 
 
 
@@ -30,6 +31,8 @@ app.use(expressfileupload({
 require('./DB/setup')();
 app.use('/api/user',user);
 app.use('/api/room',room);
+app.use('/api/club',clubs)
+app.use('/api/clubUser',clubUsers)
 
 
 app.listen(4000,()=>{

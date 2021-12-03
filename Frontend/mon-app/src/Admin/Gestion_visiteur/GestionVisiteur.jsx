@@ -43,19 +43,11 @@ const GestionVisiteur = (props) => {
 
   return (
     <div>
-      <div
-        className="content_Visiteur"
-        style={{
-          marginTop: "2%",
-          marginBottom: "2%",
-        }}
-      >
-        <div className="visiteur">
-          <div className="title_categorie_icons">
-            <strong></strong>
-          </div>
-        </div>
-        <form className="d-flex align-items-center h-100" action="#">
+        
+    <div className="row">
+    <div className="col-12">
+      <div className="card mb-4">
+      <form className="d-flex align-items-center h-100" action="#">
           <div className="input-group">
             <input
               type="text"
@@ -66,56 +58,52 @@ const GestionVisiteur = (props) => {
             />
           </div>
         </form>
-      </div>
 
-      <table className="table_equipe">
-        <tbody>
-          <tr className="table_tr">
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Email</th>
-
-            <th />
-          </tr>
-        </tbody>
-        {visiteur.map((v) => (
-          <tbody className="tbody_equipe">
-            <tr className="equipe_body">
-              <td>
-              <div className="equipe_first">
-
-                <div
-                  className="equipe_first_cercle"
+        <div className="card-header pb-0">
+          <h6>Liste Visiteurs</h6>
+        </div>
+        <div className="card-body px-0 pt-0 pb-2">
+          <div className="table-responsive p-0">
+            <table className="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Visiteur</th>
+                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                  <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Telephone</th>
+                  <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date de naissance</th>
+                  <th className="text-secondary opacity-7" />
+                </tr>
+              </thead>
+              {visiteur.map((v) => (
+              <tbody>
+                <tr>
+                  <td>
+                    <div className="d-flex px-2 py-1">
+                      <div>
+                        <div className="equipe_first_cercle"
                   style={{
                     backgroundImage: `url(${
                       "http://localhost:4000/api/user/getImage/" + v._id
                     })`,
                     backgroundSize: "cover",
-                  }}
-                ></div>{" "}
-             
-                <div className="equipe_first_info">
-                  <span>{v.nom}</span>
-                </div>
-                </div>
-              </td>
-
-              <td>
-                <div className="equipe_second">
-                  <span>{v.prenom}</span>
-                </div>
-              </td>
-
-              <td>
-                <div className="equipe_third">
-                  <span>{v.email}</span>
-                </div>
-              </td>
-
-              <td>
-                <img
-                  src="/image/icons/delete_icons.png"
-                  onClick={() => {
+                  }} className="avatar avatar-sm me-3" alt="user1" />
+                      </div>
+                      <div className="d-flex flex-column justify-content-center">
+                        <h6 className="mb-0 text-sm">{v.prenom} {v.nom}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p className="text-xs font-weight-bold mb-0">{v.email}</p>
+                  </td>
+                  <td className="align-middle text-center text-sm">
+                    <span className="">{v.telephone}</span>
+                  </td>
+                  <td className="align-middle text-center">
+                    <span className="text-secondary text-xs font-weight-bold">{v.date_nais}</span>
+                  </td>
+                  <td className="align-middle">
+                    <a href="#"           onClick={() => {
                     Swal.fire({
                       title: "Êtes - vous sûr ?",
                       text: "",
@@ -130,14 +118,23 @@ const GestionVisiteur = (props) => {
                       }
                     });
                   }}
-                />
-              </td>
-            </tr>
-            <br />
-          </tbody>
-        ))}
-      </table>
+                   className="badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
+                      supprimer
+                    </a>
+                  </td>
+                </tr>
+         
+               
+        
+              </tbody>
+              ))}
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  </div>
   );
 };
 

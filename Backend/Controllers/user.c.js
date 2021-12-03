@@ -2,6 +2,9 @@ const users = require("../Models/user.model");
 var bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const images = require("../models/image.model");
+const rooms = require("../Models/room.model");
+const clubs = require("../Models/clubs.model");
+const clubUsers = require("../Models/clubUser.model");
 
 
 module.exports.inscription = async(req,res)=>{
@@ -18,6 +21,8 @@ module.exports.inscription = async(req,res)=>{
             prenom : req.body.prenom,
             email : req.body.email,
             password : newPassword,
+            date_nais:req.body.date_nais,
+            telephone:req.body.telephone,
             image:nm
         });
         await user.save();
@@ -39,7 +44,6 @@ module.exports.getImage = async (req, res) => {
   };
 
 module.exports.login = async(req,res)=>{
-
     const user = await users.findOne({email : req.body.email});
 
     if(!user){
@@ -52,7 +56,9 @@ module.exports.login = async(req,res)=>{
             _id: user._id,
             nom : user.nom,
             prenom : user.prenom,
-            email : user.email
+            email : user.email,
+            telephone:user.telephone,
+            date_nais :user.date_nais
         },process.env.SECURITE,{
             expiresIn : '15d'
           });
@@ -72,8 +78,14 @@ module.exports.findUsers = async(req,res)=>{
 }
 
 module.exports.remove = async (req,res)=>{
-
+    const id = req.params.id;
     await users.findByIdAndRemove({_id : req.params.id})
+    await rooms.deleteMany({id_user:id});
+    await clubs.deleteMany({id_user:id});
+    await clubUsers.deleteMany({id_user:id});
+
+    
+
     res.status(200).send("deleted")
 }
 
@@ -83,3 +95,75 @@ module.exports.serche = async (req, res) => {
     });
     res.json(Serche);
   };
+
+  module.exports.infoUser = async (req,res,next)=>{
+    const token = req.session.token
+    jwt.verify(token,process.env.SECURITE,(error,decoded)=>{
+      if(error){
+        return res.status(403).send('invalid token')
+      }
+      const info = decoded
+      res.send(info)
+    })
+}
+
+module.exports.verife = (req,res)=>{
+  const token = req.session.token
+  jwt.verify(token,process.env.SECURITE,(error,decoded)=>{
+    if(error){
+      return res.status(403).send('invalid token')
+    }
+    res.json(decoded)
+  })
+}
+
+/*
+module.exports.verifeAdmin = (req,res)=>{
+  const token = req.session.token
+  jwt.verify(token,process.env.SECURITE,(error,decoded)=>{
+    if(error){
+      return res.status(403).send('invalid token')
+    }
+    else if(decoded.e =="admin" && decoded.p=="admin123"){
+      return res.status(200).send("is Admin with token")
+    } 
+  })
+}
+*/
+
+module.exports.verifeAdmin = (req,res)=>{
+  const token = req.session.token
+  jwt.verify(token,process.env.SECURITE,(error,decoded)=>{
+    req.info_user = decoded
+    if(req.info_user.nom !="admin") {
+       return res.status(404).send('invalid token')
+    }else{
+      res.send("admin with token")
+    }
+
+  })
+}
+
+
+module.exports.logout = (req,res)=>{
+  req.session = null
+  res.send('logout')
+}
+
+module.exports.isAdmin = (req,res)=>{
+    let email = req.body.email;
+    let password = req.body.password;
+    if(email =="admin" && password =="admin123"){
+    
+      const tokenAdmin = jwt.sign({
+        nom: email,
+        p : password
+    },process.env.SECURITE,{
+        expiresIn : '15d'
+      });
+      req.session.token  = tokenAdmin
+      res.status(200).send("is Admin");
+    }else{
+      return res.status(404).send("Invalid Name or Password")
+    }
+}

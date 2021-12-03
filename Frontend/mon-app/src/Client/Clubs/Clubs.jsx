@@ -1,36 +1,69 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ModalAdd from "./Components/ModalAdd";
-const Rooms = () => {
+import ModalAdd from "../Clubs/Components/ModalAdd";
+
+const Clubs = () => {
   const backImage = [
     "/image/Equipe/montage.png",
     "/image/Equipe/régie.png",
     "/image/Equipe/son.png",
   ];
-  const [rooms, setRooms] = useState([]);
+  const [stateClubs, setClubs] = useState([]);
+  const [stateId_user_api,setId_user_api] = useState([])
+
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [valuesInput, setValues] = useState({});
+ 
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/room/findall").then((rooms) => {
-      setRooms(rooms.data);
-      setValues({
-        etat_salle: "public",
-      });
-    });
-  }, []);
+    let id_user_api = [];
 
-  const rechercheRooms = async (event) => {
+    axios.get("http://localhost:4000/api/club/findall").then((clubs) => {
+      setClubs(clubs.data);
+    });
+    
+      axios.get("http://localhost:4000/api/club/apifollow").then((api) => {
+        id_user_api.push(api.data._id);
+        setId_user_api(id_user_api[0]);
+      });
+
+  },[]);
+
+  const AddClubUser = async (id) => {
+    try {
+      const formData = new FormData();
+      formData.append("id_club", id._id);
+
+      await axios.post("http://localhost:4000/api/clubUser/add", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      toast("Follow ", {
+        type: "success",
+      });
+    } catch (error) {
+      if (error.response.data) {
+        toast(error.response.data, {
+          type: "error",
+        });
+      }
+    }
+  };
+
+  const rechercheClub = async (event) => {
     if (event.target.value === "") {
-      axios.get("http://localhost:4000/api/room/findall").then((res) => {
-        setRooms(res.data);
+      axios.get("http://localhost:4000/api/club/findall").then((res) => {
+        setClubs(res.data);
       });
     } else {
       let Serche = await axios.get(
-        "http://localhost:4000/api/room/serche/" + event.target.value
+        "http://localhost:4000/api/club/serche/" + event.target.value
       );
-      setRooms(Serche.data);
+      setClubs(Serche.data);
     }
   };
 
@@ -38,8 +71,8 @@ const Rooms = () => {
     <div>
       {modalIsOpen == true ? (
         <ModalAdd
-          rooms={rooms}
-          setRooms={setRooms}
+          stateClubs={stateClubs}
+          setClubs={setClubs}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
           valuesInput={valuesInput}
@@ -56,7 +89,7 @@ const Rooms = () => {
           }}
         >
           <div className="title_categorie_icons">
-            <h3>Rooms</h3>
+            <h3>Clubs</h3>
           </div>
 
           <div className="select"></div>
@@ -67,9 +100,9 @@ const Rooms = () => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Serche Rooms"
+                placeholder="Serche Club"
                 name="serche"
-                onChange={rechercheRooms}
+                onChange={rechercheClub}
               />
             </div>
           </form>
@@ -79,14 +112,14 @@ const Rooms = () => {
             onClick={() => setModalIsOpen(true)}
             class="btn_rooms"
           >
-            Créer un nouveau Rooms +{" "}
+            Créer un nouveau Club +{" "}
           </button>
         </div>
       </div>
 
       <div className="row">
         <div className="listeRooms">
-          {rooms.map((ro) => (
+          {stateClubs.map((cl) => (
             <div className="sliderBib">
               <div className="slider_Equipe">
                 <div
@@ -99,29 +132,32 @@ const Rooms = () => {
                     backgroundSize: "cover",
                   }}
                 ></div>
+          
+      
+
                 <div class="equipe">
                   <div className="content_slider_equipe">
-                    <h5>Réunion : {ro.nom_salle}</h5>
+                    <h5>Nom du club : {cl.nom_club}</h5>
                     <i className="mdi mdi-delete-sweep"></i>
                   </div>
-                  <div className="content_slider_equipe">
-                    <h5>Réalisé Par :{ro.id_user.prenom} {ro.id_user.nom}</h5>
-                    <i className="mdi mdi-delete-sweep"></i>
-                  </div>
-
-                  <div className="content_slider_equipe">
-                    <h5>Data Creation : {ro.date}</h5>
-                    <i className="mdi mdi-delete-sweep"></i>
-                  </div>
-              
-
-                  
                   <div className="content_slider_equipe">
                     <h5>
-                      {ro.date_debut} - {ro.date_fin}
+                      Réalisé Par :{cl.id_user.prenom} {cl.id_user.nom}
+                    </h5>
+                    <i className="mdi mdi-delete-sweep"></i>
+                  </div>
+
+                  <div className="content_slider_equipe">
+                    <h5>Data du réunion : {cl.date}</h5>
+                    <i className="mdi mdi-delete-sweep"></i>
+                  </div>
+
+                  <div className="content_slider_equipe">
+                    <h5>
+                      {cl.date_debut_reunion} - {cl.date_fin_reunion}
                     </h5>
                     <svg
-                    style={{marginBottom:"10px"}}
+                      style={{ marginBottom: "10px" }}
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
                       height="20"
@@ -138,11 +174,25 @@ const Rooms = () => {
                     <img src="/image/Equipe/imageEquipe.png" alt="" />
 
                     <button className="letsgo">
-                      <a href={ro.link} target="_blank">
+                      <a href="#" target="_blank">
                         Let's go
                       </a>
                     </button>
+                    
+                    {
+                       (stateId_user_api) == (cl.id_user._id) ? <div></div> :  <button
+                       className="btn-follow"
+                       onClick={() => AddClubUser(cl)}
+                     >
+                       Follow
+                     </button>
+                    }
+
+                    
+
+                   
                   </div>
+                  <ToastContainer></ToastContainer>
                 </div>
               </div>
             </div>
@@ -153,4 +203,4 @@ const Rooms = () => {
   );
 };
 
-export default Rooms;
+export default Clubs;

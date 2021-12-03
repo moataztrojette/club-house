@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useState} from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -6,49 +6,23 @@ import Modal from "react-modal";
 
 
 const ModalAdd = (props) => {
-    
-    const uploadToState = (event) => {
-        let res = props.valuesInput;
-        res[event.target.name] = event.target.files[0];
-        props.setValues(res);
-      };
-  
+  const MyValueInput = (event) => {
+    let res = props.valuesInput;
+    res[event.target.name] = event.target.value;
+    props.setValues(res);
+  };
       const handleFormSubmit = async (event) => {
-        try{
           event.preventDefault();
-          const formData = new FormData();
-          formData.append("nomArticle", props.valuesInput.nomArticle);
-          formData.append("categorieArticle", props.valuesInput.categorieArticle);
-          formData.append("quantite", props.valuesInput.quantite);
-          formData.append("localisation", props.valuesInput.localisation);
-          formData.append("statut", props.valuesInput.statut);
-          formData.append("imageArticle", props.valuesInput.imageArticle);
-      
           const data = await axios.post(
-            "http://localhost:4000/api/article/post",
-            formData,
-            {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          );
+            "http://localhost:4000/api/room/add",props.valuesInput);
       
-          toast("Article a été ajouter avec success ", {
+          toast("Room a été ajouter avec success ", {
             type: "success",
           });
-          const prevStateArt = props.allArticle;
-          prevStateArt.push(data.data);
-          console.log(data.data)
-          props.setArticle(prevStateArt);
-        }catch(error){
-          if (error.response.data) {
-            toast(error.response.data, {
-              type: "error",
-            });
-          }
-        }
-      
+          const prevState = props.rooms;
+          prevState.push(data.data);
+          console.log(prevState)
+          props.setRooms(prevState);
       };
  
 
@@ -73,92 +47,81 @@ const ModalAdd = (props) => {
        }}
      >
        <div className="auth-form-light text-left p-4">
-         <h3 className="font-weight-light">Ajouter un nouveau Article</h3>
+         <h3 className="font-weight-light">Ajouter un nouveau Room</h3>
          <br />
          <form
            className="pt-3"
            onSubmit={handleFormSubmit}
-           encType="multipart/form-data"
          >
-           <div className="form-group">
-             <h5 className="auth-link text-black"> Nom de l’article</h5>
+
+          <div className="form-group">
+             <h5 className="auth-link text-black"> Nom de salle </h5>
              <input
                type="text"
                className="form-control"
                id="exampleInputUsername2"
-               name="nomArticle"
+               name="nom_salle"
                required
-               placeholder="Nom de l’article"
-               onChange={props.MyValueInput}
+               placeholder="Nom de salle"
+               onChange={MyValueInput}
              />
            </div>
-           <h5 className="auth-link text-black">Catégorie </h5>
 
            <div className="form-group">
-             <select
-               className="select_categorie"
-               name="categorieArticle"
-               onChange={props.MyValueInput}
-             >
-               {props.categorie.map((cat) => (
-                 <option value={cat._id}>{cat.nomCategorie}</option>
-               ))}
-             </select>
-           </div>
-
-           <div className="form-group">
-             <h5 className="auth-link text-black"> Quantité</h5>
+             <h5 className="auth-link text-black"> Date debut </h5>
              <input
-               type="number"
+               type="time"
                className="form-control"
                id="exampleInputUsername2"
-               name="quantite"
+               name="date_debut"
                required
-               placeholder="quantite"
-               onChange={props.MyValueInput}
+               placeholder="Date debut"
+               onChange={MyValueInput}
              />
            </div>
-           <h5 className="auth-link text-black">Localisation </h5>
+
+     
 
            <div className="form-group">
-             <select
-               className="select_categorie"
-               name="localisation"
-               onChange={props.MyValueInput}
-             >
-               {props.depot.map((dep) => (
-                 <option value={dep._id}>{dep.nomDepot}</option>
-               ))}
-             </select>
-           </div>
-
-           <h5 className="auth-link text-black">Statut </h5>
-
-           <div className="form-group">
-             <select
-               className="select_categorie"
-               name="statut"
-               onChange={props.MyValueInput}
-             >
-               <option value="enlocation">en location</option>
-               <option value="dansdepot">dans dépot </option>
-               <option value="reservé">reservé</option>
-             </select>
-           </div>
-
-           <div className="form-group">
-             <h5 className="auth-link text-black">Image </h5>
-
+             <h5 className="auth-link text-black"> Date Fin </h5>
              <input
-               type="file"
+               type="time"
                className="form-control"
-               name="imageArticle"
-               id="exampleInputMobile"
+               id="exampleInputUsername2"
+               name="date_fin"
                required
-               placeholder="image"
-               onChange={uploadToState}
+               placeholder="Date Fin"
+               onChange={MyValueInput}
              />
            </div>
+         
+
+           <div className="form-group">
+           <h5 className="auth-link text-black"> Etat de salle </h5>
+
+             <select
+               className="select_room"
+               name="etat_salle"
+               onChange={MyValueInput}
+             >
+               <option value="enlocation">Public</option>
+               <option value="dansdepot">Private  </option>
+             </select>
+           </div>
+
+           <div className="form-group">
+             <h5 className="auth-link text-black"> Lien réunion  </h5>
+             <input
+               type="text"
+               className="form-control"
+               id="exampleInputUsername2"
+               name="link"
+               required
+               placeholder="Lien réunion"
+               onChange={MyValueInput}
+             />
+           </div>
+
 
            <div className="mb-2">
              <button
