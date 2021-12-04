@@ -39,20 +39,28 @@ module.exports.getImage = async (req, res) => {
   };
 
   module.exports.findall = async (req, res) => {
-    const tab_id = []
+    //const tab_id = []
 
     //const AllStatus= await status.find({id_user:req.info_user._id}).populate('id_user').sort({'datePub': -1})
-    const AllStatus= await status.find().populate('id_user').sort({'datePub': -1})
+    //const AllStatus= await status.find().populate('id_user').sort({'datePub': -1})
     
-    res.json(AllStatus);
 
     const pubUserFollow = await userFollows.find({id_user:req.info_user._id}).select("id_user_follow -_id");
+    const test =  pubUserFollow.map( bb =>{
+      return bb.id_user_follow
+    })
+
+    test.push(req.info_user._id)
     
-    for (let pas = 0; pas < pubUserFollow.length; pas++)
-    {
-      tab_id.push(pubUserFollow[pas].id_user_follow)
-    }
-    console.log(tab_id);
+    const AllStatus= await status.find({
+      id_user : {
+        $in : test
+      }
+    }).populate('id_user').sort({'datePub': -1})
+
+
+    res.json(AllStatus);
+    
   };
   
   module.exports.serche = async (req, res) => {

@@ -67,6 +67,8 @@ const GestionClubs = (props) => {
                   <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vistiteur</th>
                     <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom du club</th>
                     <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Sujet</th>
+                    <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link</th>
+
                     <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date de creation</th>
                     <th className="text-secondary opacity-7" />
                   </tr>
@@ -100,9 +102,18 @@ const GestionClubs = (props) => {
                       <span className="text-secondary text-xs font-weight-bold">{v.contexte_club}</span>
                     </td>
                     
+                    <td className="align-middle text-center text-sm">
+                      <span className="badge badge-warning  bg-gradient-success"> <a href={v.link} target="_blank">
+                        Let's go
+                      </a></span>
+                    </td>
+
                     <td className="align-middle text-center">
                       <span className="text-secondary text-xs font-weight-bold">{v.date}</span>
                     </td>
+
+                 
+
                     
 
                     <td className="align-middle">

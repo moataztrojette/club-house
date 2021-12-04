@@ -58,7 +58,7 @@ const Status = (props) => {
     console.log(status);
 
     const prevState = status;
-    prevState.push(dataStatus.data);
+    prevState.unshift(dataStatus.data);
     setStatus(prevState);
     console.log(status);
     props.history.push("/user/status");
