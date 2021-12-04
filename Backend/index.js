@@ -11,6 +11,8 @@ const room = require("./Routes/room.router.js");
 const clubs = require("./Routes/clubs.router.js");
 const clubUsers = require("./Routes/clubUsers.router");
 const status = require("./Routes/status.router");
+const userFollow = require("./Routes/userFollow.router");
+
 
 
 
@@ -36,6 +38,8 @@ app.use('/api/room',room);
 app.use('/api/club',clubs)
 app.use('/api/clubUser',clubUsers)
 app.use('/api/status',status)
+app.use('/api/userfollow',userFollow)
+
 
 
 

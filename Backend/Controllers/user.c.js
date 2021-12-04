@@ -5,7 +5,8 @@ const images = require("../models/image.model");
 const rooms = require("../Models/room.model");
 const clubs = require("../Models/clubs.model");
 const clubUsers = require("../Models/clubUser.model");
-const status = require("../Models/status.model")
+const status = require("../Models/status.model");
+const userFollows = require("../Models/userFollow.model");
 
 module.exports.inscription = async(req,res)=>{
 
@@ -73,7 +74,7 @@ module.exports.login = async(req,res)=>{
 }
 
 module.exports.findUsers = async(req,res)=>{
-    const listUser = await users.find();
+    const listUser = await users.find()
     res.json(listUser)
 }
 
@@ -84,6 +85,9 @@ module.exports.remove = async (req,res)=>{
     await clubs.deleteMany({id_user:id});
     await clubUsers.deleteMany({id_user:id});
     await status.deleteMany({id_user:id});
+    await userFollows.deleteMany({id_user:id});
+
+    
 
 
     

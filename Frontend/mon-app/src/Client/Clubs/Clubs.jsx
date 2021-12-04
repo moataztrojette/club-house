@@ -174,7 +174,7 @@ const Clubs = () => {
                     <img src="/image/Equipe/imageEquipe.png" alt="" />
 
                     <button className="letsgo">
-                      <a href="#" target="_blank">
+                      <a href={cl.link} target="_blank">
                         Let's go
                       </a>
                     </button>

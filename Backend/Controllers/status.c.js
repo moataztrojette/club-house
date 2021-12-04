@@ -1,5 +1,6 @@
 const status = require("../Models/status.model");
 const images = require("../models/image.model");
+const userFollows = require("../Models/userFollow.model");
 module.exports.add = async(req,res)=>{
   let date_ob = new Date();
   let date = date_ob.getDate();
@@ -15,6 +16,7 @@ module.exports.add = async(req,res)=>{
             publication : req.body.publication,
             image:nm,
             date : dataFull,
+            datePub : date_ob,
             id_user : req.info_user._id,
             nom_user : req.info_user.nom
         });
@@ -37,8 +39,20 @@ module.exports.getImage = async (req, res) => {
   };
 
   module.exports.findall = async (req, res) => {
-    const AllStatus= await status.find().populate('id_user')
+    const tab_id = []
+
+    //const AllStatus= await status.find({id_user:req.info_user._id}).populate('id_user').sort({'datePub': -1})
+    const AllStatus= await status.find().populate('id_user').sort({'datePub': -1})
+    
     res.json(AllStatus);
+
+    const pubUserFollow = await userFollows.find({id_user:req.info_user._id}).select("id_user_follow -_id");
+    
+    for (let pas = 0; pas < pubUserFollow.length; pas++)
+    {
+      tab_id.push(pubUserFollow[pas].id_user_follow)
+    }
+    console.log(tab_id);
   };
   
   module.exports.serche = async (req, res) => {

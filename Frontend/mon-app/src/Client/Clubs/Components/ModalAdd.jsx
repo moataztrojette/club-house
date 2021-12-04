@@ -112,6 +112,19 @@ const ModalAdd = (props) => {
                 onChange={MyValueInput}
               />
             </div>
+            <div className="form-group">
+             <h5 className="auth-link text-black"> Lien réunion  </h5>
+             <input
+               type="text"
+               className="form-control"
+               id="exampleInputUsername2"
+               name="link"
+               required
+               placeholder="Lien réunion"
+               onChange={MyValueInput}
+             />
+           </div>
+           
 
             <div className="mb-2">
               <button

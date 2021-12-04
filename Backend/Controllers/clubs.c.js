@@ -16,6 +16,7 @@ module.exports.Add = async(req,res)=>{
           date_debut_reunion : req.body.date_debut_reunion,
           date_fin_reunion : req.body.date_fin_reunion,
           date : req.body.date,
+          link : req.body.link,
           id_user : req.info_user._id
                 });
       await club.save();
@@ -64,6 +65,8 @@ module.exports.updateClub = async (req,res)=>{
     contexte_club : req.body.contexte_club,
     date_debut_reunion : req.body.date_debut_reunion,
     date_fin_reunion : req.body.date_fin_reunion,
+    link : req.body.link,
+
     date: req.body.date
   },{
       new : true
@@ -84,5 +87,4 @@ module.exports.apiVerife = async (req,res,next)=>{
     req.info_user = decoded
   })
   res.send(req.info_user);
-
 }

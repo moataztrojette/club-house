@@ -92,7 +92,7 @@ const Gestion_status = (props) => {
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td className="publication_status_admin">
                     <p className="text-xs font-weight-bold mb-0">{v.publication}</p>
                   </td>
                          

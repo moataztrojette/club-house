@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MyClubCreated from "./Components/MyClubCreated";
 import MyClubFollow from "./Components/MyClubFollow";
+import MyUsersFollow from "./Components/MyUsersFollow";
 
 const Profil = () => {
 
@@ -81,10 +82,14 @@ const Profil = () => {
             </div>
           </div>
         </div>
+        <MyUsersFollow/>
+
       </div>
+
     </div>
     <MyClubFollow/>
     <MyClubCreated/>
+    
     
   </div>);
 }

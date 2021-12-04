@@ -6,6 +6,7 @@ const  club = new mongoose.Schema({
     date_debut_reunion :{type:String,required:true},
     date_fin_reunion:{type:String,required:true},
     date : {type:String, required:true},
+    link : {type:String, required:true},
     id_user:{type:mongoose.Types.ObjectId , ref:"users"},
 })
 const clubs = mongoose.model("clubs",club);

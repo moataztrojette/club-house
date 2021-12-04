@@ -123,6 +123,19 @@ const ModalUpdate = (props) => {
               />
             </div>
 
+            <h5 className="auth-link text-black">Lien réunion </h5>
+
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                id="exampleInputUsername2"
+                name="link"
+                required
+                value={props.valuesInput_update.link}
+                onChange={props.MyValueInput_update}
+              />
+            </div>
 
             <div className="mb-2">
               <button

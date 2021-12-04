@@ -25250,8 +25250,8 @@ justify-content: center;
 }
 .slider_Equipe{
   overflow: hidden;
-  height: 30em;
-  width: 20em;
+  height: 35em;
+  width: 22em;
   border-radius: 10px;
   margin-right: -40px;
   
@@ -25371,10 +25371,12 @@ justify-content: center;
 .input_statu{
 
   opacity: 0.5;
-
+  white-space: normal;
   width: 36em;
   height: 5em;
-}   
+  overflow: hidden;
+} 
+
 .btn-upload-statu{
   border: none;
   background-color: red;
@@ -25399,6 +25401,7 @@ width: 139px;
 }
 .status{
 padding: 11px;
+border-radius: 10px;
 box-shadow: -12px 12px 2px 1px rgba(0, 0, 255, .2);
 width: 50em;
 overflow: hidden;
@@ -25406,7 +25409,7 @@ background-color:#FFFFFF;
 
 }
 .blog{
-padding: 1em 15em;
+padding: 1em 2em;
 
 }
 
@@ -25418,6 +25421,8 @@ width: 50em;
 height: auto;
 overflow: hidden;
 background-color:#FFFFFF;
+border-radius: 10px;
+
 box-shadow: 20px -16px #F9CF19;}
 
 .publication_img-per{
@@ -25455,7 +25460,6 @@ border-radius: 5px;
 }
 .publication_status p{
   height: auto;
-
   white-space: pre-line;
   overflow: hidden;
 }
@@ -25466,4 +25470,24 @@ p.publication_status {
   width: 46.2em;
 
 }
+
+
+.publication_status_admin p{
+  height: auto;
+  white-space: pre-line;
+  overflow: hidden;
+  width: 50em;
+}
+
+p.publication_status_admin{
+  margin-top: 10px;
+  white-space: normal;
+  width: 10.2px;
+}
 /* status */
+/*container_status*/
+.container_status{
+  display: flex;
+  flex-direction: row;
+}
+/*container_status*/

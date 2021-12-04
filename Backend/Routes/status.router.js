@@ -5,7 +5,7 @@ const { isLogin } = require("../middleware/auth")
 
 
 router.post("/add",isLogin,add);
-router.get("/findall", findall);
+router.get("/findall", isLogin,findall);
 router.get("/getImage/:idImage", getImage);
 router.get("/serche/:name", serche);
 router.delete('/delete/:id',remove)
