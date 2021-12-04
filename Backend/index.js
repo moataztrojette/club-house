@@ -10,6 +10,8 @@ const user = require("./Routes/user.router");
 const room = require("./Routes/room.router.js");
 const clubs = require("./Routes/clubs.router.js");
 const clubUsers = require("./Routes/clubUsers.router");
+const status = require("./Routes/status.router");
+
 
 
 
@@ -33,6 +35,8 @@ app.use('/api/user',user);
 app.use('/api/room',room);
 app.use('/api/club',clubs)
 app.use('/api/clubUser',clubUsers)
+app.use('/api/status',status)
+
 
 
 app.listen(4000,()=>{

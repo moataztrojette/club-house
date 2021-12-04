@@ -203,7 +203,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li class="nav-item">
-            <a href ="#" class="nav-link  ">
+            <Link to ={"/admin/status"} class="nav-link  ">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg
                   width="12px"
@@ -244,7 +244,7 @@ const Sidebar = () => {
                 </svg>
               </div>
               <span class="nav-link-text ms-1">Status</span>
-            </a>
+            </Link>
           </li>
        
       

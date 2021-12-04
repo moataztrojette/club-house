@@ -31,7 +31,7 @@ const Profil = () => {
           <div className="col-auto">
               <div className="image_profil"    style={{
                     backgroundImage: `url(${
-                      "http://localhost:4000/api/user/getImage/" +profil._id
+                      "http://localhost:4000/api/user/getImage/"+profil._id
                     })`,
                     backgroundSize: "cover",
                   }}>

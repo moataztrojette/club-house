@@ -7,7 +7,7 @@ import GestionVisiteur from "../Admin/Gestion_visiteur/GestionVisiteur";
 import {React,useState,useEffect} from "react";
 import axios from "axios"
 import GestionClubs from "../Admin/Gestion_clubs/GestionClubs";
-
+import Gestion_status from "../Admin/Gestion_Status/Gestion_status";
 const Home = (props) => {
   const [user, setUser] = useState(null);
 
@@ -45,6 +45,8 @@ const Home = (props) => {
           <Route  path="/admin/visiteur" component={GestionVisiteur} />
           <Route  path="/admin/rooms"    component={GestionRooms} />
           <Route  path="/admin/clubs"    component={GestionClubs} />
+          <Route  path="/admin/status"    component={Gestion_status} />
+
 
            </Switch>
             </div>

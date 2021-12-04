@@ -5,7 +5,7 @@ const images = require("../models/image.model");
 const rooms = require("../Models/room.model");
 const clubs = require("../Models/clubs.model");
 const clubUsers = require("../Models/clubUser.model");
-
+const status = require("../Models/status.model")
 
 module.exports.inscription = async(req,res)=>{
 
@@ -83,6 +83,8 @@ module.exports.remove = async (req,res)=>{
     await rooms.deleteMany({id_user:id});
     await clubs.deleteMany({id_user:id});
     await clubUsers.deleteMany({id_user:id});
+    await status.deleteMany({id_user:id});
+
 
     
 
