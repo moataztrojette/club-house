@@ -16,7 +16,7 @@ const ModalAdd = (props) => {
           const data = await axios.post(
             "http://localhost:4000/api/room/add",props.valuesInput);
       
-          toast("Room a été ajouter avec success ", {
+          toast("Room was successfully added ", {
             type: "success",
           });
           const prevState = props.rooms;
@@ -47,7 +47,7 @@ const ModalAdd = (props) => {
        }}
      >
        <div className="auth-form-light text-left p-4">
-         <h3 className="font-weight-light">Ajouter un nouveau Room</h3>
+         <h3 className="font-weight-light">Add a new Room</h3>
          <br />
          <form
            className="pt-3"
@@ -55,12 +55,12 @@ const ModalAdd = (props) => {
          >
 
           <div className="form-group">
-             <h5 className="auth-link text-black"> Nom de salle </h5>
+             <h5 className="auth-link text-black"> Room name </h5>
              <input
                type="text"
                className="form-control"
                id="exampleInputUsername2"
-               name="nom_salle"
+               name="Room name"
                required
                placeholder="Nom de salle"
                onChange={MyValueInput}
@@ -68,12 +68,12 @@ const ModalAdd = (props) => {
            </div>
 
            <div className="form-group">
-             <h5 className="auth-link text-black"> Date debut </h5>
+             <h5 className="auth-link text-black"> Start date </h5>
              <input
                type="time"
                className="form-control"
                id="exampleInputUsername2"
-               name="date_debut"
+               name="Start date"
                required
                placeholder="Date debut"
                onChange={MyValueInput}
@@ -83,12 +83,12 @@ const ModalAdd = (props) => {
      
 
            <div className="form-group">
-             <h5 className="auth-link text-black"> Date Fin </h5>
+             <h5 className="auth-link text-black"> End date </h5>
              <input
                type="time"
                className="form-control"
                id="exampleInputUsername2"
-               name="date_fin"
+               name="End date"
                required
                placeholder="Date Fin"
                onChange={MyValueInput}
@@ -97,7 +97,7 @@ const ModalAdd = (props) => {
          
 
            <div className="form-group">
-           <h5 className="auth-link text-black"> Etat de salle </h5>
+           <h5 className="auth-link text-black"> Room condition </h5>
 
              <select
                className="select_room"
@@ -110,14 +110,14 @@ const ModalAdd = (props) => {
            </div>
 
            <div className="form-group">
-             <h5 className="auth-link text-black"> Lien réunion  </h5>
+             <h5 className="auth-link text-black"> Meeting link  </h5>
              <input
                type="text"
                className="form-control"
                id="exampleInputUsername2"
                name="link"
                required
-               placeholder="Lien réunion"
+               placeholder="Meeting link"
                onChange={MyValueInput}
              />
            </div>

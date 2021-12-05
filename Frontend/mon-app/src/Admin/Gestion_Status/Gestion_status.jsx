@@ -23,7 +23,7 @@ const Gestion_status = (props) => {
           const preventStatu = status;
           const newState = preventStatu.filter((dev) => dev._id != id);
           setListeStatus(newState);
-          Swal.fire("Publication", "publication a été supprimé", "success");
+          Swal.fire("Publication", "publication has been deleted", "success");
         }
       });
   };
@@ -58,15 +58,15 @@ const Gestion_status = (props) => {
         </form>
 
         <div className="card-header pb-0">
-          <h6>Liste des Status</h6>
+          <h6>Status List</h6>
         </div>
         <div className="card-body px-0 pt-0 pb-2">
           <div className="table-responsive p-0">
             <table className="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Visiteur</th>
-                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">publication</th>
+                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Visitor</th>
+                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Publication</th>
                   <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
                   <th className="text-secondary opacity-7" />
                 </tr>
@@ -117,7 +117,7 @@ const Gestion_status = (props) => {
                     });
                   }}
                    className="badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user" style={{background:"#DC143C"}}>
-                      supprimer
+                      deleted
                     </a>
                   </td>
                 </tr>

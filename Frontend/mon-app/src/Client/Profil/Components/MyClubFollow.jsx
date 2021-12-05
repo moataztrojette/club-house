@@ -30,7 +30,7 @@ useEffect(() => {
    await axios.delete(
      "http://localhost:4000/api/clubUser/unfollow/"+
      id._id);
-          toast("unfollow ", {type: "success",});
+          toast("Unfollow club ", {type: "error",});
           const prevState = myClub;
           const new_state = prevState.filter((eq) => eq._id !== id._id);
           setMyClub(new_state);
@@ -42,7 +42,7 @@ useEffect(() => {
     return (  <div className="col-12 mt-4">
     <div className="card mb-4">
       <div className="card-header pb-0 p-3">
-        <h6 className="mb-1">My Clubs Subscribe</h6>
+        <h6 className="mb-1">M'y Clubs Subscribe</h6>
       </div>
       <div className="card-body p-3">
 

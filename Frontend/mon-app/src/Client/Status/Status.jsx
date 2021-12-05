@@ -52,7 +52,7 @@ const Status = (props) => {
       }
     );
 
-    toast("publication a été ajouter avec success ", {
+    toast("publication was successfully added ", {
       type: "success",
     });
     console.log(status);
@@ -75,7 +75,7 @@ const Status = (props) => {
         const preventStatu = status;
         const newState = preventStatu.filter((dev) => dev._id != id._id);
         setStatus(newState);
-        Swal.fire("Publication", "Publication a été supprimé", "success");
+        Swal.fire("Publication", "Publication has been deleted", "success");
       }
     });
   }

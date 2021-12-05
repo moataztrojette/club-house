@@ -12,7 +12,7 @@ const ModalUpdate = (props) => {
       props.valuesInput_update
     );
 
-    toast("Club a été Modifiér avec success ", {
+    toast("Club Has Been Changed Successfully ", {
       type: "success",
     });
 
@@ -52,10 +52,10 @@ const ModalUpdate = (props) => {
         }}
       >
         <div className="auth-form-light text-left p-5">
-          <h3 className="font-weight-light">Modifier un Club</h3>
+          <h3 className="font-weight-light">Modify a Club</h3>
           <br />
           <form className="pt-3" onSubmit={handleFormSubmitUpdate}>
-            <h5 className="auth-link text-black">Nom du club </h5>
+            <h5 className="auth-link text-black">Club name </h5>
 
             <div className="form-group">
               <input
@@ -71,7 +71,7 @@ const ModalUpdate = (props) => {
             </div>
 
             <div className="form-group">
-              <h5 className="auth-link text-black">Sujet</h5>
+              <h5 className="auth-link text-black">Subject</h5>
               <input
                 type="text"
                 className="form-control"
@@ -83,7 +83,7 @@ const ModalUpdate = (props) => {
               />
             </div>
 
-            <h5 className="auth-link text-black">Date de réunion</h5>
+            <h5 className="auth-link text-black">Meeting date</h5>
             <div className="form-group">
               <input
                 type="date"
@@ -96,7 +96,7 @@ const ModalUpdate = (props) => {
               />
             </div>
 
-            <h5 className="auth-link text-black">Date debut réunion </h5>
+            <h5 className="auth-link text-black">start Meeting  date </h5>
 
             <div className="form-group">
               <input
@@ -109,7 +109,7 @@ const ModalUpdate = (props) => {
                 onChange={props.MyValueInput_update}
               />
             </div>
-            <h5 className="auth-link text-black">Date fin réunion </h5>
+            <h5 className="auth-link text-black">end Meeting  date </h5>
 
             <div className="form-group">
               <input
@@ -123,7 +123,7 @@ const ModalUpdate = (props) => {
               />
             </div>
 
-            <h5 className="auth-link text-black">Lien réunion </h5>
+            <h5 className="auth-link text-black">Meeting link </h5>
 
             <div className="form-group">
               <input

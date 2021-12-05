@@ -57,15 +57,15 @@ const GestionRooms = (props) => {
           </form>
   
           <div className="card-header pb-0">
-            <h6>Liste des rooms</h6>
+            <h6>List of rooms</h6>
           </div>
           <div className="card-body px-0 pt-0 pb-2">
             <div className="table-responsive p-0">
               <table className="table align-items-center mb-0">
                 <thead>
                   <tr>
-                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Visiteur</th>
-                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Salle</th>
+                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">visitor</th>
+                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Room</th>
                     <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link</th>
                     <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
                     <th className="text-secondary opacity-7" />
@@ -120,7 +120,7 @@ const GestionRooms = (props) => {
                       });
                     }}
                      className="badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user" style={{background:"#DC143C"}}>
-                        supprimer
+                        deleted
                       </a>
                     </td>
                   </tr>

@@ -79,7 +79,7 @@ const Rooms = () => {
             onClick={() => setModalIsOpen(true)}
             class="btn_rooms"
           >
-            Créer un nouveau Rooms +{" "}
+            Create a new Rooms +{" "}
           </button>
         </div>
       </div>
@@ -101,11 +101,11 @@ const Rooms = () => {
                 ></div>
                 <div class="equipe">
                   <div className="content_slider_equipe">
-                    <h5>Réunion : {ro.nom_salle}</h5>
+                    <h5>Meeting : {ro.nom_salle}</h5>
                     <i className="mdi mdi-delete-sweep"></i>
                   </div>
                   <div className="content_slider_equipe">
-                    <h5>Réalisé Par :{ro.id_user.prenom} {ro.id_user.nom}</h5>
+                    <h5>Realized by :{ro.id_user.prenom} {ro.id_user.nom}</h5>
                     <i className="mdi mdi-delete-sweep"></i>
                   </div>
 

@@ -7,7 +7,7 @@ module.exports.Add = async(req,res)=>{
       id_user_follow:req.body.id_user_follow
     })
     if(verife){
-      return res.status(422).send("c deja Follow !");
+      return res.status(422).send("Already Follow !");
     }
     else{
       const userFollow = new userFollows({

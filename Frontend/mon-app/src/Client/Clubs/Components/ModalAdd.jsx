@@ -17,7 +17,7 @@ const ModalAdd = (props) => {
       "http://localhost:4000/api/club/add",
       props.valuesInput
     );
-    toast("Club a été ajouter avec success ", {
+    toast("Club was successfully added ", {
       type: "success",
     });
     console.log(props.clubs)
@@ -49,36 +49,36 @@ const ModalAdd = (props) => {
         }}
       >
         <div className="auth-form-light text-left p-4">
-          <h3 className="font-weight-light">Ajouter un nouveau Club</h3>
+          <h3 className="font-weight-light">Add a new Club</h3>
           <br />
           <form className="pt-3" onSubmit={handleFormSubmit}>
             <div className="form-group">
-              <h5 className="auth-link text-black"> Nom du Club </h5>
+              <h5 className="auth-link text-black"> Club name </h5>
               <input
                 type="text"
                 className="form-control"
                 id="exampleInputUsername2"
                 name="nom_club"
                 required
-                placeholder="Nom du Club"
+                placeholder="Club name"
                 onChange={MyValueInput}
               />
             </div>
             <div className="form-group">
-              <h5 className="auth-link text-black"> Sujet du Club </h5>
+              <h5 className="auth-link text-black">Club subject </h5>
               <input
                 type="text"
                 className="form-control"
                 id="exampleInputUsername2"
                 name="contexte_club"
                 required
-                placeholder="Sujet du Club"
+                placeholder="Club subject"
                 onChange={MyValueInput}
               />
             </div>
 
             <div className="form-group">
-              <h5 className="auth-link text-black"> Date  Réunion </h5>
+              <h5 className="auth-link text-black"> Date Meeting </h5>
               <input
                 type="date"
                 className="form-control"
@@ -90,7 +90,7 @@ const ModalAdd = (props) => {
             </div>
 
             <div className="form-group">
-              <h5 className="auth-link text-black"> Date debut Réunion </h5>
+              <h5 className="auth-link text-black"> start Meeting  date </h5>
               <input
                 type="time"
                 className="form-control"
@@ -102,7 +102,7 @@ const ModalAdd = (props) => {
             </div>
 
             <div className="form-group">
-              <h5 className="auth-link text-black"> Date Fin Réunion </h5>
+              <h5 className="auth-link text-black"> end Meeting  date </h5>
               <input
                 type="time"
                 className="form-control"
@@ -113,14 +113,14 @@ const ModalAdd = (props) => {
               />
             </div>
             <div className="form-group">
-             <h5 className="auth-link text-black"> Lien réunion  </h5>
+             <h5 className="auth-link text-black"> Meeting link  </h5>
              <input
                type="text"
                className="form-control"
                id="exampleInputUsername2"
                name="link"
                required
-               placeholder="Lien réunion"
+               placeholder="Meeting link"
                onChange={MyValueInput}
              />
            </div>

@@ -22,7 +22,7 @@ const GestionClubs = (props) => {
             const preventStatu = clubs;
             const newState = preventStatu.filter((dev) => dev._id != id);
             setClubs(newState);
-            Swal.fire("Club", "Club a été supprimé", "success");
+            Swal.fire("Club", "Club has been deleted", "success");
           }
         });
     };
@@ -57,19 +57,19 @@ const GestionClubs = (props) => {
           </form>
   
           <div className="card-header pb-0">
-            <h6>Liste des clubs</h6>
+            <h6>List of clubs</h6>
           </div>
           <div className="card-body px-0 pt-0 pb-2">
             <div className="table-responsive p-0">
               <table className="table align-items-center mb-0">
                 <thead>
                   <tr>
-                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vistiteur</th>
-                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom du club</th>
-                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Sujet</th>
+                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Visitor</th>
+                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Club name</th>
+                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">subject</th>
                     <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link</th>
 
-                    <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date de creation</th>
+                    <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Creation date</th>
                     <th className="text-secondary opacity-7" />
                   </tr>
                 </thead>

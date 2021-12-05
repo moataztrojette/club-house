@@ -47,7 +47,7 @@ const Profil = () => {
                 {profil.prenom} {profil.nom}
               </h5>
               <p className="mb-0 font-weight-bold text-sm">
-                Visiteur
+              Visitor
               </p>
             </div>
           </div>

@@ -6,7 +6,7 @@ module.exports.Add = async(req,res)=>{
     id_club:req.body.id_club
   })
   if(verife){
-    return res.status(422).send("c deja subscribe !");
+    return res.status(422).send("Already subscribe !");
   }
   else{
     const clubUser = new clubUsers({

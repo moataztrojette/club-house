@@ -26,7 +26,7 @@ const UnfollowUser = async (id) => {
  await axios.delete(
    "http://localhost:4000/api/userfollow/unfollow/"+
    id._id);
-        toast("unfollow ", {type: "success",});
+        toast("unfollow visitor ", {type: "error",});
         const prevState = myUsers;
         const new_state = prevState.filter((eq) => eq._id !== id._id);
         setMyUsers(new_state);

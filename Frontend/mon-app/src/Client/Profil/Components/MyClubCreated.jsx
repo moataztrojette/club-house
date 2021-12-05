@@ -37,7 +37,7 @@ useEffect(() => {
         const preventStatu = myClubCreated;
         const newState = preventStatu.filter((dev) => dev._id != id._id);
         setMyClubCreated(newState);
-        Swal.fire("Club", "Club a été supprimé", "success");
+        Swal.fire("Club", "Club has been deleted", "success");
       }
     });
   }
@@ -53,7 +53,7 @@ useEffect(() => {
     <div className="card mb-4">
 
       <div className="card-header pb-0 p-3">
-        <h6 className="mb-1">My Clubs Created</h6>
+        <h6 className="mb-1">M'y Clubs Created</h6>
       </div>
       <div className="card-body p-3">
 
@@ -82,7 +82,7 @@ useEffect(() => {
                     {cl.nom_club}
                   </h5>
                 </a>
-                <h6>Sujet: {cl.contexte_club} 
+                <h6>Subject: {cl.contexte_club} 
 </h6>
                 <p className="mb-4 text-sm">
                 {cl.date} {cl.date_debut_reunion} - {cl.date_fin_reunion}

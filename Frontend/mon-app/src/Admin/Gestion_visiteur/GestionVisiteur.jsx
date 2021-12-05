@@ -23,7 +23,7 @@ const GestionVisiteur = (props) => {
           const preventStatu = visiteur;
           const newState = preventStatu.filter((dev) => dev._id != id);
           setListeVisiteur(newState);
-          Swal.fire("Visiteur", "Visiteur a été supprimé", "success");
+          Swal.fire("Visiteur", "Visitor has been deleted", "success");
         }
       });
   };
@@ -60,17 +60,17 @@ const GestionVisiteur = (props) => {
         </form>
 
         <div className="card-header pb-0">
-          <h6>Liste Visiteurs</h6>
+          <h6>Visitors List</h6>
         </div>
         <div className="card-body px-0 pt-0 pb-2">
           <div className="table-responsive p-0">
             <table className="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Visiteur</th>
+                  <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Visitor</th>
                   <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                   <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Telephone</th>
-                  <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date de naissance</th>
+                  <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date of Birth</th>
                   <th className="text-secondary opacity-7" />
                 </tr>
               </thead>
@@ -119,7 +119,7 @@ const GestionVisiteur = (props) => {
                     });
                   }}
                    className="badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
-                      supprimer
+                      deleted
                     </a>
                   </td>
                 </tr>
