@@ -8,7 +8,7 @@ const Gestion_status = (props) => {
   const [status, setListeStatus] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/status/findall").then((v) => {
+    axios.get("http://localhost:4000/api/status/findstatu").then((v) => {
         setListeStatus(v.data);
     });
   }, []);
@@ -30,7 +30,7 @@ const Gestion_status = (props) => {
 
   const rechercheUsers = async (event) => {
     if (event.target.value === "") {
-      axios.get("http://localhost:4000/api/status/findall").then((res) => {
+      axios.get("http://localhost:4000/api/status/findstatu").then((res) => {
         setListeStatus(res.data);
       });
     } else {

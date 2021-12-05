@@ -38,6 +38,14 @@ module.exports.getImage = async (req, res) => {
     res.send(resImage.body);
   };
 
+  module.exports.findallStatus = async (req, res) => {
+
+    const AllStatus= await status.find().populate('id_user').sort({'datePub': -1})
+    
+    res.json(AllStatus);
+    
+  };
+
   module.exports.findall = async (req, res) => {
     //const tab_id = []
 
@@ -51,7 +59,7 @@ module.exports.getImage = async (req, res) => {
     })
 
     test.push(req.info_user._id)
-    
+    //console.log(test)
     const AllStatus= await status.find({
       id_user : {
         $in : test
