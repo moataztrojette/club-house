@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { NavLink } from "react-router-dom";
 
 const Login = (props) => {
 
@@ -59,7 +60,12 @@ const Login = (props) => {
                          <button type="submit" className="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
                        </div>
                      </form>
+                     <p className="text-sm mt-3 mb-0">
+                     Don't have an account?{" "}
+                        <NavLink to="/singup">Sign up</NavLink>
+                      </p>
                    </div>
+                
                    <ToastContainer></ToastContainer>
 
                  

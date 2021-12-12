@@ -2,6 +2,7 @@ import { React } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import Modal from "react-modal";
 
 const ModalAdd = (props) => {
@@ -111,6 +112,9 @@ const ModalAdd = (props) => {
                 required
                 onChange={MyValueInput}
               />
+            </div>
+            <div className="form-group" style={{backgroundColor:"#FFD700",borderRadius:"10px",padding:"10px"}}>
+            <a href="https://meet.google.com/" target="_blanck" >Generate link meet please !!</a>
             </div>
             <div className="form-group">
              <h5 className="auth-link text-black"> Meeting link  </h5>

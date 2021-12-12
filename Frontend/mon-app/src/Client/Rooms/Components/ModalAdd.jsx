@@ -60,9 +60,9 @@ const ModalAdd = (props) => {
                type="text"
                className="form-control"
                id="exampleInputUsername2"
-               name="Room name"
+               name="nom_salle"
                required
-               placeholder="Nom de salle"
+               placeholder="Room name"
                onChange={MyValueInput}
              />
            </div>
@@ -73,9 +73,9 @@ const ModalAdd = (props) => {
                type="time"
                className="form-control"
                id="exampleInputUsername2"
-               name="Start date"
+               placeholder="Start date"
                required
-               placeholder="Date debut"
+               name="date_debut"
                onChange={MyValueInput}
              />
            </div>
@@ -88,9 +88,9 @@ const ModalAdd = (props) => {
                type="time"
                className="form-control"
                id="exampleInputUsername2"
-               name="End date"
+               placeholder="End date"
                required
-               placeholder="Date Fin"
+               name="date_fin"
                onChange={MyValueInput}
              />
            </div>
@@ -108,7 +108,9 @@ const ModalAdd = (props) => {
                <option value="dansdepot">Private  </option>
              </select>
            </div>
-
+           <div className="form-group" style={{backgroundColor:"#FFD700",borderRadius:"10px",padding:"10px"}}>
+            <a href="https://meet.google.com/" target="_blanck" >Generate link meet please !!</a>
+            </div>
            <div className="form-group">
              <h5 className="auth-link text-black"> Meeting link  </h5>
              <input

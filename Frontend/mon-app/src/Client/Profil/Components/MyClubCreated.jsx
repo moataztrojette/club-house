@@ -107,13 +107,17 @@ useEffect(() => {
                       });
                     }}>Delete</button>
                
-               <button type="button"  onClick={() => {
+               <button  type="button" style={{
+                      marginRight:"10px"
+                  }}   onClick={() => {
                       setModalUpdateIsOpen({
                         open: true,
                         info: cl,
                       });
                       setValues_update(cl);
                     }}  className="btn btn btn-primary btn-sm mb-0">Update</button>
+
+      <button type="button"    className="btn btn-warning btn-sm mb-0"><a a href={cl.link} target="_blank">View</a></button>
 
                 </div>
         

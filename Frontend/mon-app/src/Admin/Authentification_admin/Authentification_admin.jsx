@@ -17,7 +17,7 @@ const Authentification_admin = (props) => {
     event.preventDefault();
     try{
      await axios.post("http://localhost:4000/api/user/isadmin",valuesInput)
-     props.history.push("/admin");
+     props.history.push("/admin/visiteur");
     }catch(error){
         toast(error.response.data,{
           type: "error",

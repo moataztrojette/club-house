@@ -77,7 +77,7 @@ useEffect(() => {
                 </p>
                 <div style={{display:"flex"}}>
                 <div className="d-flex align-items-center justify-content-between">
-                  <button type="button" className="btn btn btn-success btn-sm mb-0">Let's go</button>
+                  <button type="button" className="btn btn btn-success btn-sm mb-0"><a a href={cl.id_club.link} target="_blank">Let's go</a></button>
                
                 </div>
                 <div className="d-flex align-items-center justify-content-between">
