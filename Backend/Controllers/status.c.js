@@ -71,6 +71,14 @@ module.exports.getImage = async (req, res) => {
     
   };
   
+  module.exports.findMyStatu = async (req, res) => {
+    
+    const AllStatus= await status.find({id_user:req.info_user._id}).populate('id_user').sort({'datePub': -1})
+    res.json(AllStatus);
+    
+  };
+
+
   module.exports.serche = async (req, res) => {
 
     const Serche = await status.find({

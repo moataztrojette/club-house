@@ -2,11 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MyClubCreated from "./Components/MyClubCreated";
 import MyClubFollow from "./Components/MyClubFollow";
+import MyStatus from "./Components/MyStatus";
 import MyUsersFollow from "./Components/MyUsersFollow";
 
 const Profil = () => {
 
     const [profil, setProfil] = useState([]);
+    const [status, setStatus] = useState([]);
 
    
 
@@ -15,6 +17,7 @@ const Profil = () => {
       axios.get("http://localhost:4000/api/user/coordonner").then((v) => {
         setProfil(v.data);
       });
+     
     }, []);
 
   
@@ -64,7 +67,7 @@ const Profil = () => {
             <div className="card-header pb-0 p-3">
               <div className="row">
                 <div className="col-md-8 d-flex align-items-center">
-                  <h6 className="mb-0">Profile Information</h6>
+                  <h6 className="mb-0">User profile</h6>
                 </div>
               
               </div>
@@ -87,10 +90,13 @@ const Profil = () => {
       </div>
 
     </div>
+    
+<div className="ProfilInfo">
     <MyClubFollow/>
+    <MyStatus/>
+
     <MyClubCreated/>
-    
-    
+    </div>  
   </div>);
 }
  

@@ -67,7 +67,7 @@ const Rooms = () => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Serche Rooms"
+                placeholder="Find rooms"
                 name="serche"
                 onChange={rechercheRooms}
               />
@@ -79,7 +79,7 @@ const Rooms = () => {
             onClick={() => setModalIsOpen(true)}
             class="btn_rooms"
           >
-            Create a new Rooms +{" "}
+            New Rooms +{" "}
           </button>
         </div>
       </div>

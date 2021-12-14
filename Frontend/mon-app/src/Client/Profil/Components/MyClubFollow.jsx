@@ -39,18 +39,18 @@ useEffect(() => {
 
 
 
-    return (  <div className="col-12 mt-4">
-    <div className="card mb-4">
+    return (  <div className="col-10 mt-4" style={{width:"20em"}} >
+    <div className="card mb-4" >
       <div className="card-header pb-0 p-3">
-        <h6 className="mb-1">M'y Clubs Subscribe</h6>
+        <h6 className="mb-1">My subscribed Clubs</h6>
       </div>
       <div className="card-body p-3">
 
-        <div className="row">
+        <div className="row" style={{display:"flex", flexDirection:"column"}}>
         {myClub.map((cl) => (
 
-          <div className="col-xl-3 col-md-6 mb-xl-0 mb-4">
-            <div className="card card-blog card-plain">
+          <div className="col-xl-3 col-md-6 mb-xl-0 mb-4"  >
+            <div className="card card-blog card-plain" style={{marginBottom:"2em"}} >
               <div className="position-relative" >
                 <div  style={{
                     backgroundImage: `url(${
@@ -58,14 +58,14 @@ useEffect(() => {
                     })`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
-                    width:"100%",
+                    width:"17em",
                     height:"10em"
                   }}>
                     
                 </div>
 
               </div>
-              <div className="card-body px-1 pb-0">
+              <div className="card-body px-1 pb-0" style={{width:"20em"}}>
                 <a href="javascript:;">
                   <h5>
                     {cl.id_club.nom_club}

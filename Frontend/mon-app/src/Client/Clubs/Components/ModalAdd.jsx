@@ -50,7 +50,7 @@ const ModalAdd = (props) => {
         }}
       >
         <div className="auth-form-light text-left p-4">
-          <h3 className="font-weight-light">Add a new Club</h3>
+          <h3 className="font-weight-light">New club</h3>
           <br />
           <form className="pt-3" onSubmit={handleFormSubmit}>
             <div className="form-group">
@@ -136,7 +136,7 @@ const ModalAdd = (props) => {
                 className="btn btn-block btn-facebook auth-form-btn"
               >
                 <i className="mdi mr-2" />
-                Terminer{" "}
+                Complete{" "}
               </button>
             </div>
 
@@ -147,7 +147,7 @@ const ModalAdd = (props) => {
                 className="btn btn-block btn-facebook auth-form-btn"
               >
                 <i className="mdi mr-2" />
-                Retour{" "}
+                Return{" "}
               </button>
             </div>
           </form>

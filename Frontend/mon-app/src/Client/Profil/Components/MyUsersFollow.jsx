@@ -36,7 +36,7 @@ const UnfollowUser = async (id) => {
     return ( <div className="col-12 col-xl-4">
     <div className="card h-100">
       <div className="card-header pb-0 p-3">
-        <h6 className="mb-0">Subscriptions</h6>
+        <h6 className="mb-0">Subscribers</h6>
       </div>
       <div className="card-body p-3">
         <ul className="list-group">

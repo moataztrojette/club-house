@@ -25490,4 +25490,12 @@ p.publication_status_admin{
   display: flex;
   flex-direction: row;
 }
+.ProfilInfo{
+width: 100%;
+overflow: hidden;
+display: flex;
+flex-direction: row;
+margin-left: -15px;
+}
+
 /*container_status*/

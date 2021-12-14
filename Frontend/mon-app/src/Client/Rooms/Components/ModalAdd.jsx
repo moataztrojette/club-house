@@ -47,7 +47,7 @@ const ModalAdd = (props) => {
        }}
      >
        <div className="auth-form-light text-left p-4">
-         <h3 className="font-weight-light">Add a new Room</h3>
+         <h3 className="font-weight-light">New room</h3>
          <br />
          <form
            className="pt-3"
@@ -97,7 +97,7 @@ const ModalAdd = (props) => {
          
 
            <div className="form-group">
-           <h5 className="auth-link text-black"> Room condition </h5>
+           <h5 className="auth-link text-black"> Room status </h5>
 
              <select
                className="select_room"
@@ -131,7 +131,7 @@ const ModalAdd = (props) => {
                className="btn btn-block btn-facebook auth-form-btn"
              >
                <i className="mdi mr-2" />
-               Terminer{" "}
+               Complete{" "}
              </button>
            </div>
 
@@ -142,7 +142,7 @@ const ModalAdd = (props) => {
                className="btn btn-block btn-facebook auth-form-btn"
              >
                <i className="mdi mr-2" />
-               Retour{" "}
+               Return{" "}
              </button>
            </div>
          </form>

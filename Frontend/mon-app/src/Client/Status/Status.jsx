@@ -23,6 +23,9 @@ const Status = (props) => {
       id_user_api.push(api.data._id);
       setId_user_api(id_user_api[0]);
     });
+
+
+    console.log(stateId_user_api)
   }, []);
 
   const uploadToState = (event) => {

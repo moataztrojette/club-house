@@ -112,7 +112,7 @@ const Clubs = () => {
             onClick={() => setModalIsOpen(true)}
             class="btn_rooms"
           >
-            Create a new Club +{" "}
+            New club +{" "}
           </button>
         </div>
       </div>
